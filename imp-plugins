@@ -1,0 +1,30 @@
+13.233.58.185 -> Tomcat Server
+
+plugin -
+- build pipeline
+- maven integration
+- deploy to container
+- copy artifact (copy artifact from one statge to other)
+
+Clone the Repo
+- spring-boot-war-example
+
+Installl MVN on system
+- sudo apt-get update -y
+- sudo apt-get install maven (maven installation cmd)
+- mvn --help (to check mvn install or not)
+- mvn test (To run test case)
+- mvn install (Used to buld the project jar/war)
+       target/hello-world-0.0.1-SNAPSHOT.war
+- cp target/hello-world-0.0.1-SNAPSHOT.war /tmp
+
+Now The war fiole need to deploy on Tomcat server
+- sudo apt-install tomcat9 -y (Tomcat will install java as well port:8080)
+- cd /var/lib/tomcat9/webapps
+   copy the .war file into webapps/
+- cp /tmp/hello-world-0.0.1-SNAPSHOT.war  ./app.war
+- sudo apt-get install tomcat9-admin
+-  vi conf/tomcat-users.xml 
+
+<role rolename="manager-gui"/>
+<user username="tomcat" password="s3cret" roles="manager-gui"/>
